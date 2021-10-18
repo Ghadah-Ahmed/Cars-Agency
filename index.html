@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="carousel">
+        <div class="menu">
+            <li class="menu-li">ABOUT</li>
+            <li class="menu-li">RENTERS</li>
+            <li class="menu-li">EXIBITION</li>
+        </div>
+        <nav>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="51" height="86" ><path fill="#ffffff" d="M17.05517578125,34.779296875q0-1.58349609375,0.084228515625-3.13330078125t0.286376953125-3.06591796875q0.134765625-0.77490234375,1.196044921875-1.11181640625t1.768798828125-0.3369140625l0.80859375,0.0673828125q0.97705078125,0.134765625,1.970947265625-0.134765625t1.970947265625-0.26953125q2.291015625,0,5.12109375,0.50537109375t5.306396484375,1.71826171875t4.160888671875,3.183837890625t1.6845703125,4.868408203125t-1.751953125,5.407470703125t-4.41357421875,4.41357421875t-5.7275390625,2.981689453125t-5.62646484375,1.078125q0.26953125,6.50244140625,0.758056640625,12.90380859375t1.667724609375,12.802734375l0.0673828125,0.43798828125q0,0.4716796875-0.421142578125,0.77490234375t-0.993896484375,0.488525390625t-1.162353515625,0.252685546875t-0.960205078125,0.0673828125q-0.84228515625,0-2.038330078125-0.320068359375t-1.465576171875-1.263427734375q-0.77490234375-2.96484375-1.212890625-6.519287109375t-0.64013671875-7.428955078125t-0.286376953125-7.799560546875t-0.084228515625-7.664794921875l0-7.58056640625q0-1.24658203125-0.03369140625-2.59423828125t-0.03369140625-2.72900390625z M23.4228515625,29.3212890625q0,4.61572265625,0.10107421875,9.214599609375t0.23583984375,9.214599609375q1.98779296875-0.404296875,4.059814453125-1.431884765625t3.73974609375-2.442626953125t2.6953125-3.217529296875t1.027587890625-3.790283203125q0-1.78564453125-0.892822265625-3.20068359375t-2.307861328125-2.42578125q-1.38134765625-0.97705078125-3.13330078125-1.51611328125q-1.5498046875-0.4716796875-3.0322265625-0.4716796875l-0.37060546875,0z"/><path fill="#" d=""/></svg>
+            <div onclick="myMenu()" class="burger-menu"></div>
+        </nav>
+        <button class="carousel__button carousel__button--left is-hidden">
+            <img src="images/logo copy.png" alt="">
+        </button>
+
+        <div class="carousel__track-container">
+            <h4 class="carousel__track-title ">HII IAM GHADAH</h4>
+            <ul  class="carousel__track carousel__backgrond">
+                <li class="carousel__slide">
+                    <div>
+                        <h3>ORANGE</h3>
+                        <h1 style="color: #9d261136;">ORANGE</h1>
+                    </div>
+                </li>
+                <li class="carousel__slide">
+                    <div>
+                        <h3>YELLOW</h3>
+                        <h1 style="color: #a468012f;">YELLOW</h1>
+                    </div>
+                </li>
+                <li class="carousel__slide">
+                    <div>
+                        <h3>NEMO</h3>
+                        <h1 style="color: #02245446;">NEMO</h1>
+                    </div>
+                </li>
+                <li class="carousel__slide current-slide">
+                    <div>
+                        <h3>VACAY</h3>
+                        <h1 style="color: #78685b41;">VACAY</h1>
+                    </div>
+                </li>
+            </ul>  
+            <ul class="carousel__track background-text">
+                <li class="carousel__slide  current-slide">
+                    <img class="carousel__image" src="images/Pagani_Huayra_Top_View-removebg-preview.png" alt="">
+                </li>
+                <li class="carousel__slide">
+                    <img class="carousel__image" src="images/Car_Archives_-_leManoosh-removebg-preview.png" alt="">
+                </li>
+                <li class="carousel__slide">
+                    <img class="carousel__image" src="images/FERRARI_488_CHALLENGE__Amalgam_Models_-removebg-preview.png" alt="">
+                </li>
+                <li class="carousel__slide">
+                    <img class="carousel__image" src="images/d42c9af667d649e8da136b8fec61f1e5-removebg-preview.png" alt="">
+                </li>
+            </ul>
+        </div>
+
+        <button class="carousel__button carousel__button--right">
+            <img src="images/logo.png"  alt="">
+        </button>
+
+        <div class="carousel__nav">
+            <button class="carousel__indicator current-slide">1</button>
+            <button class="carousel__indicator">2</button>
+            <button class="carousel__indicator">3</button>
+            <button class="carousel__indicator">4</button>
+        </div>    
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

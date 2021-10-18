@@ -1,0 +1,51 @@
+{
+  "renters": [
+    {
+      "id": "1",
+      "Name": "Ahmed",
+      "carId": "4"
+    },
+    {
+      "id": "2",
+      "Name": "Mansoor",
+      "carId": "3"
+    },
+    {
+      "id": "3",
+      "Name": "Salem",
+      "carId": "1"
+    },
+    {
+      "id": "4",
+      "Name": "Omar",
+      "carId": "4"
+    },
+    {
+      "Name": "GHADAH",
+      "carId": "2",
+      "id": "PWHBh6d"
+    }
+  ],
+  "cars": [
+    {
+      "id": "1",
+      "Make_Name": "ACG"
+    },
+    {
+      "id": "2",
+      "Make_Name": "MOONLIGHT CHOPPERS"
+    },
+    {
+      "id": "3",
+      "Make_Name": "COOPER CYCLES"
+    },
+    {
+      "id": "4",
+      "Make_Name": "FORD"
+    },
+    {
+      "Make_Name": "FORD",
+      "id": "YhD2Mej"
+    }
+  ]
+}

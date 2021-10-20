@@ -1,51 +1,64 @@
 {
-  "renters": [
-    {
-      "id": "1",
-      "Name": "Ahmed",
-      "carId": "4"
-    },
-    {
-      "id": "2",
-      "Name": "Mansoor",
-      "carId": "3"
-    },
-    {
-      "id": "3",
-      "Name": "Salem",
-      "carId": "1"
-    },
-    {
-      "id": "4",
-      "Name": "Omar",
-      "carId": "4"
-    },
-    {
-      "Name": "GHADAH",
-      "carId": "2",
-      "id": "PWHBh6d"
-    }
-  ],
   "cars": [
     {
       "id": "1",
-      "Make_Name": "ACG"
+      "car_name": "VACAY",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, voluptas sapiente facere nisi aliquid at quo veritatis vero.",
+      "phrase": "HII IAM GHADAH",
+      "car_img_png": "images/Pagani_Huayra_Top_View-removebg-preview.png",
+      "background_color": "#D8CFC4",
+      "color": "#78685b41",
+      "manufacture": "",
+      "wheels": "",
+      "seats_num": "",
+      "gear": "",
+      "engine_img_src": "images/IMAGE_1443-03-13_10_35_34-removebg-preview.png",
+      "engine_sound_src": ""
     },
     {
       "id": "2",
-      "Make_Name": "MOONLIGHT CHOPPERS"
+      "car_name": "NEMO",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, voluptas sapiente facere nisi aliquid at quo veritatis vero.",
+      "phrase": "HOW ARE YOU",
+      "car_img_png": "images/Car_Archives_-_leManoosh-removebg-preview.png",
+      "background_color": "#0376B9",
+      "color": "#02245446",
+      "manufacture": "",
+      "wheels": "",
+      "seats_num": "",
+      "gear": "",
+      "engine_img_src": "images/IMAGE_1443-03-13_10_35_34-removebg-preview.png",
+      "engine_sound_src": ""
     },
     {
       "id": "3",
-      "Make_Name": "COOPER CYCLES"
+      "car_name": "SPIDER",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, voluptas sapiente facere nisi aliquid at quo veritatis vero.",
+      "phrase": "ARE YOU FINE?",
+      "car_img_png": "images/FERRARI_488_CHALLENGE__Amalgam_Models_-removebg-preview.png",
+      "background_color": "#EFBA1D",
+      "color": "#a468012f",
+      "manufacture": "",
+      "wheels": "",
+      "seats_num": "",
+      "gear": "",
+      "engine_img_src": "images/IMAGE_1443-03-13_10_35_34-removebg-preview.png",
+      "engine_sound_src": ""
     },
     {
       "id": "4",
-      "Make_Name": "FORD"
-    },
-    {
-      "Make_Name": "FORD",
-      "id": "YhD2Mej"
+      "car_name": "ORANGE",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, voluptas sapiente facere nisi aliquid at quo veritatis vero.",
+      "phrase": "CAN YOU HEAR ME?",
+      "car_img_png": "images/d42c9af667d649e8da136b8fec61f1e5-removebg-preview.png",
+      "background_color": "#EB6435",
+      "color": "#9d261136",
+      "manufacture": "",
+      "wheels": "",
+      "seats_num": "",
+      "gear": "",
+      "engine_img_src": "images/IMAGE_1443-03-13_10_35_34-removebg-preview.png",
+      "engine_sound_src": ""
     }
   ]
 }

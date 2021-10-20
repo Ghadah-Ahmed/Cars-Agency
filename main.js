@@ -1,23 +1,135 @@
- const track = document.getElementsByClassName('carousel__track')[1];
- const trackOpesite = document.getElementsByClassName('carousel__track')[0];
+ var track = document.getElementsByClassName('carousel__track')[1];
+ var trackOpesite = document.getElementsByClassName('carousel__track')[0];
+ var dotsNav = document.querySelector('.carousel__nav'); 
+ var slides; 
+ var slidesOpesite; 
+ var dots;
+ var slideWidth; 
+ var slideIndex = 0;
+ var allData = [];
+ var x = window.matchMedia("(max-width: 767px)");
+
  const trackContainer = document.querySelector('.carousel__track-container')
  const trackTitle = document.querySelector('.carousel__track-title')
- const slides = Array.from(track.children); 
- const slidesOpesite = Array.from(trackOpesite.children); 
  const nextButton = document.querySelector('.carousel__button--right') 
  const prevButton = document.querySelector('.carousel__button--left')
- const dotsNav = document.querySelector('.carousel__nav'); 
- const dots = Array.from(dotsNav.children);
- const slideWidth = slides[0].getBoundingClientRect().width; 
- const backgroudColors = ['#D8CFC4', '#0376B9', '#EFBA1D', '#EB6435' ]
- const backgroudTitles = ['HII IAM GHADAH', 'HOW ARE YOU', 'ARE YOU FINE?', 'CAN YOU HEAR ME?']
+ const h1 = document.getElementsByTagName('h1')
+ const h3 = document.getElementsByTagName('h3')
+ const carStructure = document.getElementsByClassName('car__structure')[0]
+ const carInfo = document.getElementsByClassName('car__info')[0]
+ const carEngine = document.getElementsByClassName('car__engine')[0]
+ const backSpan = document.getElementById('back')
+ const readMore = document.querySelector('.read-more')
 
- // arrange the slides next to one another
+// API CRUD
+
+const url = 'http://localhost:3000/cars';
+
+fetch(url).then((resp) => resp.json()).then(function(data) {
+
+    allData = [...data]
+
+        for (let i = 0; i < data.length; i++) {
+
+            let liTitles = createNode('li');
+            let liImg = createNode('li');
+            let button = createNode('button');
+            liTitles.classList.add("carousel__slide");
+            liImg.classList.add("carousel__slide");
+
+            liTitles.innerHTML =`
+            <div>
+                  <h3>${data.at( -i+ data.length -1 ).car_name}</h3>
+                  <h1 style="color: ${data.at( -i+ data.length -1 ).color};">${data.at( -i+ data.length -1 ).car_name}</h1>
+            </div>`
+            liImg.innerHTML =`<img class="carousel__image" src="${data[i].car_img_png}" alt="">`
+            button.classList.add("carousel__indicator");
+            button.innerHTML = `${i + 1}`;
+            append(trackOpesite, liTitles);
+            append(track, liImg);
+            append(dotsNav, button);    
+        }
+  
+        slides = Array.from(track.children); 
+        slidesOpesite = Array.from(trackOpesite.children);
+        dots = Array.from(dotsNav.children);
+        slideWidth = slides[0].getBoundingClientRect().width; 
+        slides.forEach(setSlidePosition);
+        slidesOpesite.forEach(setSlidePosition);
+        slides[0].classList.add("current-slide")
+        dots[0].classList.add("current-slide")
+        slidesOpesite.at(-1).classList.add("current-slide")
+        moveToSlide(trackOpesite, trackOpesite.querySelector('.current-slide'), trackOpesite.querySelector('.current-slide'));
+
+})
+.catch((er)=>{console.log(er)})
+
+function createNode(element) {
+    return document.createElement(element);
+}
+
+function append(parent, el) {
+  return parent.appendChild(el);
+}
+
+// data to be sent to the POST request
+let _data = {
+      car_name: "ORANGE",
+      description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, voluptas sapiente facere nisi aliquid at quo veritatis vero.",
+      phrase: "CAN YOU HEAR ME?",
+      car_img_png:"images/d42c9af667d649e8da136b8fec61f1e5-removebg-preview.png",
+      background_color: "#EB6435",
+      color: "#9d261136",
+      manufacture: "",
+      wheels: "",
+      seats_num: "",
+      gear: "",
+      engine_img_src:"images/IMAGE_1443-03-13_10_35_34-removebg-preview.png",
+      engine_sound_src:""  
+  }
+
+//   document.getElementById('delete').addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     var id = this.querySelector('#carId').value;
+//     fetch( url + `/${id}`, {
+//         method: "DELETE",
+//         headers: {"Content-type": "application/json; charset=UTF-8"}
+//       })
+//       .then(response => response.json()) 
+//       .then(json => console.log(json))
+//       .catch(err => console.log(err)); 
+// })
+
+//   document.getElementById('add').addEventListener('submit', function (e) {
+//       e.preventDefault();
+//       const formData = new FormData(this);
+//       fetch( url, {
+//         method: "POST",
+//         body: JSON.stringify(Object.fromEntries(formData)),
+//         headers: {"Content-type": "application/json; charset=UTF-8"}
+//       })
+//       .then(response => response.json()) 
+//       .then(json => console.log(json))
+//       .catch(err => console.log(err));     
+//   })
+
+//   function update(id) {
+//     fetch( url + `/${id}`, {
+//         method: "PATCH",
+//         body: JSON.stringify(_data),
+//         headers: {"Content-type": "application/json; charset=UTF-8"}
+//       })
+//       .then(response => response.json()) 
+//       .then(json => console.log(json))
+//       .catch(err => console.log(err)); 
+//   }
+
+
+
+// arrange the slides next to one another
  const setSlidePosition = (slide, index) => {
     slide.style.left = slideWidth * index + 'px';
  };
- slides.forEach(setSlidePosition);
- slidesOpesite.forEach(setSlidePosition);
 
 
 const moveToSlide = (track, currentSlide, targetSlide) => {
@@ -25,7 +137,6 @@ const moveToSlide = (track, currentSlide, targetSlide) => {
     currentSlide.classList.remove('current-slide');
     targetSlide.classList.add('current-slide');
 }
-moveToSlide(trackOpesite, trackOpesite.querySelector('.current-slide'), trackOpesite.querySelector('.current-slide'));
 trackTitle.style.transform =  'translateX(' + trackTitle.getBoundingClientRect().width / 2 +'px)'
 
 function trackStyle(){
@@ -34,8 +145,9 @@ function trackStyle(){
 }
 
 const hideShowArrows = (slides, prevButton, nextButton, targetIndex) => {
-    trackContainer.style.backgroundColor = backgroudColors[targetIndex]
-    trackTitle.innerHTML = backgroudTitles[targetIndex]
+    trackContainer.style.backgroundColor = allData[targetIndex].background_color;
+    trackTitle.innerHTML = allData[targetIndex].phrase;
+    slideIndex = targetIndex;
     trackTitle.style.transform =  'translateX(' + trackTitle.getBoundingClientRect().width / 2 +'px)'
     trackTitle.classList.toggle('fade')
     setTimeout(function(){ trackTitle.classList.remove('fade') }, 250);
@@ -58,14 +170,13 @@ const updateDots = (currentDot, targetDot) => {
     targetDot.classList.add('current-slide');
     }
 
-    // when I click left, move slides to the left
+// when I click left, move slides to the left
 prevButton.addEventListener('click', e => {
     trackStyle()
     const currentSlide = track.querySelector('.current-slide');
     const prevSlide = currentSlide.previousElementSibling;
     const currentSlideOpesite = trackOpesite.querySelector('.current-slide');
     const nextSlideOpesite = currentSlideOpesite.nextElementSibling;
-
     const currentDot = dotsNav.querySelector('.current-slide');
     const prevDot = currentDot.previousElementSibling;
     const prevIndex = slides.findIndex( slide => slide === prevSlide)
@@ -77,16 +188,13 @@ prevButton.addEventListener('click', e => {
     hideShowArrows (slides, prevButton, nextButton, prevIndex) 
 });         
 
- // when I click right, move slides to the right
+// when I click right, move slides to the right
 nextButton.addEventListener('click', e => {
     trackStyle()
     const currentSlide = track.querySelector('.current-slide');
     const nextSlide = currentSlide.nextElementSibling;
     const currentSlideOpesite = trackOpesite.querySelector('.current-slide');
     const prevSlideOpesite = currentSlideOpesite.previousElementSibling;
-
-
-
     const currentDot = dotsNav.querySelector('.current-slide');
     const nextDot = currentDot.nextElementSibling;
     const nextIndex = slides.findIndex( slide => slide === nextSlide)
@@ -125,11 +233,11 @@ function myMenu() {
     var menu = document.querySelector(".menu");
     var li = document.getElementsByClassName("menu-li");
     var nav = document.querySelector("nav");
-    var x = window.matchMedia("(max-width: 767px)");
 
 
     if (menu.style.padding !== "0px" ) {
         menu.style.padding = '0px'
+        menu.style.height = '0px'
         for (let i = 0; i < li.length; i++) {
             li[i].style.display = 'none'
         }
@@ -139,14 +247,122 @@ function myMenu() {
             li[i].style.display = 'block'
         }
         nav.style.top = '40px'
-        position(x);
-        function position(x) {
-            if (x.matches) {
-                menu.style.padding = '30px 0'
-          
-            } else {
-                menu.style.padding = '30px'
-            }
-          }
+        menu.style.height = '15px'
+        menu.style.padding = '25px 0'
     }
   }
+
+  
+function showInfo() {
+    var img = document.getElementsByClassName('carousel__image')[slideIndex]
+    var displayNone = [dotsNav, prevButton, nextButton, trackTitle, readMore]
+    var displayBlock = [ carInfo, backSpan, carStructure, carEngine]
+    carEngine.src = `${allData[slideIndex].engine_img_src}`
+    carInfo.innerHTML =`
+    <h4>${allData[slideIndex].phrase}</h4>
+    <p>${allData[slideIndex].description}</p>
+    <div>
+        <img src="images/automatic-transmission.png" width="25px" alt=""><span>${allData[slideIndex].gear}</span> 
+        <img src="images/seat.png" width="25px" alt=""> <span>${allData[slideIndex].seats_num} Seats</span>
+    </div>
+
+    <h5>Wheels</h5>
+    <button class="wheels" style="border: 2px solid #292929bd;" type="button" > <img src="images/wheel.png" width="30px" alt=""><span> 21* </span></button>
+    <button class="wheels" type="button" disabled> <img src="images/wheel.png" alt="" width="30px"><span>  56* </span></button> <br>
+    <button class="rent-now" type="button" >BOOK YOUR TRAIL!</button>
+    `
+
+        if (x.matches) {
+            // Display none 6 Items..
+            for (let i = 0; i < displayNone.length; i++) {
+                displayNone[i].style.display = 'none'
+            }
+            for (let i = 0; i < h1.length; i++) {
+                h1[i].style.display = 'none'
+                h3[i].style.transform = 'translateX(-95px)'   
+            }
+            // Transform 2 Items (h3 ^ + img)..
+            img.style.transform = 'rotate(180deg) translateY(-230px) translateX(125px) scale(1.2,1.2)'
+            // Display Block 5 Items..
+            setTimeout(function(){ 
+                for (let i = 0; i < displayBlock.length -1; i++) {
+                    displayBlock[i].style.display = 'block'
+                }
+            }, 800);
+        
+        } else {
+        // Display none 6 Items..
+            for (let i = 0; i < displayNone.length; i++) {
+                displayNone[i].style.display = 'none'
+            }
+            for (let i = 0; i < h1.length; i++) {
+                h1[i].style.display = 'none'
+                h3[i].style.transform = 'translateX(100px)'
+            }
+
+            // Transform 2 Items (h3 ^ + img)..
+            img.style.transform = 'rotate(-90deg) translateY(-205px) translateX(205px) scale(1.2,1.2)'
+
+                // Display Block 5 Items..
+            setTimeout(function(){ 
+                for (let i = 0; i < displayBlock.length; i++) {
+                    displayBlock[i].style.display = 'block'
+                }
+            }, 800);
+        }
+}
+
+// showInfo(document.getElementsByClassName('read-more')[0])
+
+function back() {
+    var img = document.getElementsByClassName('carousel__image')[slideIndex]
+    var displayNone = [carStructure, carInfo, carEngine, backSpan]
+    var displayBlock = [dotsNav, prevButton, nextButton, trackTitle]
+
+        // Display none 6 Items..
+        for (let i = 0; i < displayNone.length; i++) {
+        displayNone[i].style.display = 'none'
+        }
+    
+        // Transform 2 Items (h3 ^ + img)..
+        img.style.transform = 'none'
+        
+        // Display Block 5 Items..
+        for (let i = 0; i < displayBlock.length; i++) {
+            displayBlock[i].style.display = 'block'
+            readMore.style.display = 'flex'
+
+            for (let i = 0; i < h1.length; i++) {
+                h1[i].style.display = 'block'
+                h3[i].style.transform = 'none'
+            }
+
+        }
+}
+
+
+function driveForward(div){
+    var img = document.getElementsByClassName('carousel__image')[slideIndex]
+
+    if (x.matches) {
+        img.style.transform = 'rotate(180deg) translateY(-230px) translateX(-195px) scale(1.2,1.2)'
+    }else{
+        img.style.transform = 'rotate(-90deg) translateY(-205px) translateX(-215px) scale(1.2,1.2)'
+    }
+    div.style.border = '2px solid #292929'
+    div.nextElementSibling.style.border = '1px solid white'
+}
+
+function driveBackward(div){
+    var img = document.getElementsByClassName('carousel__image')[slideIndex]
+
+    if (x.matches) {
+        img.style.transform = 'rotate(180deg) translateY(-230px) translateX(125px) scale(1.2,1.2)'
+    }else{
+        img.style.transform = 'rotate(-90deg) translateY(-205px) translateX(205px) scale(1.2,1.2)'
+    }
+
+    div.style.border = '2px solid #292929'
+    div.previousElementSibling.style.border = '1px solid white'
+}
+

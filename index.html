@@ -17,21 +17,22 @@
     <div class="carousel">
         <div class="menu">
             <li class="menu-li">ABOUT</li>
-            <li class="menu-li">RENTERS</li>
             <li class="menu-li">EXIBITION</li>
+            <li class="menu-li">DASHBOARD</li>
         </div>
         <nav>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="51" height="86" ><path fill="#ffffff" d="M17.05517578125,34.779296875q0-1.58349609375,0.084228515625-3.13330078125t0.286376953125-3.06591796875q0.134765625-0.77490234375,1.196044921875-1.11181640625t1.768798828125-0.3369140625l0.80859375,0.0673828125q0.97705078125,0.134765625,1.970947265625-0.134765625t1.970947265625-0.26953125q2.291015625,0,5.12109375,0.50537109375t5.306396484375,1.71826171875t4.160888671875,3.183837890625t1.6845703125,4.868408203125t-1.751953125,5.407470703125t-4.41357421875,4.41357421875t-5.7275390625,2.981689453125t-5.62646484375,1.078125q0.26953125,6.50244140625,0.758056640625,12.90380859375t1.667724609375,12.802734375l0.0673828125,0.43798828125q0,0.4716796875-0.421142578125,0.77490234375t-0.993896484375,0.488525390625t-1.162353515625,0.252685546875t-0.960205078125,0.0673828125q-0.84228515625,0-2.038330078125-0.320068359375t-1.465576171875-1.263427734375q-0.77490234375-2.96484375-1.212890625-6.519287109375t-0.64013671875-7.428955078125t-0.286376953125-7.799560546875t-0.084228515625-7.664794921875l0-7.58056640625q0-1.24658203125-0.03369140625-2.59423828125t-0.03369140625-2.72900390625z M23.4228515625,29.3212890625q0,4.61572265625,0.10107421875,9.214599609375t0.23583984375,9.214599609375q1.98779296875-0.404296875,4.059814453125-1.431884765625t3.73974609375-2.442626953125t2.6953125-3.217529296875t1.027587890625-3.790283203125q0-1.78564453125-0.892822265625-3.20068359375t-2.307861328125-2.42578125q-1.38134765625-0.97705078125-3.13330078125-1.51611328125q-1.5498046875-0.4716796875-3.0322265625-0.4716796875l-0.37060546875,0z"/><path fill="#" d=""/></svg>
             <div onclick="myMenu()" class="burger-menu"></div>
         </nav>
         <button class="carousel__button carousel__button--left is-hidden">
-            <img src="images/logo copy.png" alt="">
+            <img class="desktop" src="images/logo copy.png" alt="">
+            <span class="mobile">></span>
         </button>
 
         <div class="carousel__track-container">
             <h4 class="carousel__track-title ">HII IAM GHADAH</h4>
             <ul  class="carousel__track carousel__backgrond">
-                <li class="carousel__slide">
+                <!-- <li class="carousel__slide">
                     <div>
                         <h3>ORANGE</h3>
                         <h1 style="color: #9d261136;">ORANGE</h1>
@@ -54,10 +55,10 @@
                         <h3>VACAY</h3>
                         <h1 style="color: #78685b41;">VACAY</h1>
                     </div>
-                </li>
+                </li> -->
             </ul>  
             <ul class="carousel__track background-text">
-                <li class="carousel__slide  current-slide">
+                <!-- <li class="carousel__slide  current-slide">
                     <img class="carousel__image" src="images/Pagani_Huayra_Top_View-removebg-preview.png" alt="">
                 </li>
                 <li class="carousel__slide">
@@ -68,20 +69,95 @@
                 </li>
                 <li class="carousel__slide">
                     <img class="carousel__image" src="images/d42c9af667d649e8da136b8fec61f1e5-removebg-preview.png" alt="">
-                </li>
+                </li> -->
             </ul>
         </div>
 
         <button class="carousel__button carousel__button--right">
-            <img src="images/logo.png"  alt="">
+            <img class="desktop" src="images/logo.png"  alt="">
+            <span class="mobile">></span>
         </button>
-
+   
         <div class="carousel__nav">
-            <button class="carousel__indicator current-slide">1</button>
+            <!-- <button class="carousel__indicator current-slide">1</button>
             <button class="carousel__indicator">2</button>
             <button class="carousel__indicator">3</button>
-            <button class="carousel__indicator">4</button>
-        </div>    
+            <button class="carousel__indicator">4</button> -->
+        </div>   
+        <div onclick="showInfo()" class="read-more">
+            READ MORE
+        </div> 
+
+        <div class="car__structure" >
+            <img src="images/Daco_4374999.png" alt="">
+            <div onclick="driveForward(this)" class="car__structure--top"></div>
+            <div onclick="driveBackward(this)" class="car__structure--bottom"></div>
+        </div>
+
+        <div class="car__info">
+            <!-- <h4>Best cabrio for you</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, voluptas sapiente facere nisi aliquid at quo veritatis vero.</p>
+            <div>
+                <img src="images/automatic-transmission.png" width="25px" alt=""><span>Automatic</span> 
+                <img src="images/seat.png" width="25px" alt=""> <span>4 Seats</span>
+            </div>
+
+            <h5>Wheels</h5>
+            <button class="wheels" style="border: 2px solid #292929bd;" type="button" > <img src="images/wheel.png" width="30px" alt=""><span> 21* </span></button>
+            <button class="wheels" type="button" disabled> <img src="images/wheel.png" alt="" width="30px"><span>  56* </span></button> <br>
+            <button class="rent-now" type="button" >BOOK YOUR TRAIL!</button> -->
+        </div>
+
+        <span onclick="back()" id="back">Back</span>
+        <img class="car__engine" src="" alt="">
+
+        <!-- <section class="dashboard">
+
+            <form id="add">
+                <input type="text"  name="car_name" placeholder="car_name"><br>
+                <input type="text"  name="description" placeholder="description"><br>
+                <input type="text"  name="phrase" placeholder="phrase"><br>
+                <input type="text"  name="car_img_png" placeholder="car_img_png"><br>
+                <input type="text"  name="background_color" placeholder="background_color"><br>
+                <input type="text"  name="color" placeholder="color"><br>
+                <input type="text"  name="manufacture" placeholder="manufacture"><br>
+                <input type="text"  name="wheels" placeholder="wheels"><br>
+                <input type="text"  name="seats_num" placeholder="seats_num"><br>
+                <input type="text"  name="gear" placeholder="gear"><br>
+                <input type="text"  name="engine_img_src" placeholder="engine_img_src"><br>
+                <input type="text"  name="engine_sound_src" placeholder="engine_sound_src"><br>
+                <button type="submit"> ADD </button>
+            </form>
+
+            <form id="delete">
+                <input type="text" id="carId"  name="id" placeholder="car_id"><br>
+                <button> DELETE </button>
+            </form>
+
+            <form id="update">
+                <input type="text" id="carIdU"  name="id" placeholder="car_id"><br>
+
+                <select>
+                    <option value="car_name">car_name</option>
+                    <option value="description">description</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+
+                <input type="text" id="carId"  name="new value" placeholder="new value"><br>
+
+                <button> UPDATE </button>
+            </form>
+        </section> -->
     </div>
 
     <script src="main.js"></script>

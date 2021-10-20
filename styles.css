@@ -10,6 +10,7 @@ body, h3, h1{
 
 .carousel__image, .carousel__slide div {
     width: 50%;
+    transition: transform 1s ease-in;
     /* height: 30%; */
     /* object-fit: cover; */
 }
@@ -33,9 +34,11 @@ body, h3, h1{
     position: relative;
     top: 130px;
     z-index: 1;
+    transition: transform 1s ease-in;
 }
 .carousel__backgrond li{
     align-items: flex-start;
+    overflow: hidden;
 }
 .carousel__track-container{
     background-color: #D8CFC4;
@@ -54,6 +57,7 @@ body, h3, h1{
     transition: opacity .5s linear;
     letter-spacing: 5px;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 .carousel__track-title.fade{
     opacity: 0;
@@ -96,8 +100,6 @@ body, h3, h1{
 
 .carousel__button--left{
     left: 130px;
-    /* transform: rotate(180deg); */
-
 }
 
 .carousel__button--right{
@@ -145,7 +147,19 @@ body, h3, h1{
 .is-hidden{
     display: none;
 }
-
+.read-more{
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    width: 100px;
+    height: 90px;
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
 nav{
     position: absolute;
     top: 0px;
@@ -171,19 +185,117 @@ nav{
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     background-color: white;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     justify-content: center;
     transition: 0.7s;
-
 }
 .menu li{
     list-style: none;
     margin-right: 20px;
-    padding-bottom: 40px;
+    display: none;
+}
+.car__structure{
+    position: absolute;
+    bottom: 25%;
+    left: 5%;
+    padding: 10px;
+    display: none;
+}
+.car__structure img{
+    width: 180px;
+}
+.car__structure div{
+    width: 103%;
+    height: 51%;
+    border: 1px solid white;
+    position: absolute;
+    left: -4px;
+    border-radius: 5%;
+}
+.car__structure div:hover{
+    border: 2px solid #292929 ;
+}
+.car__structure--top{
+    top: -10px;
+}
+.car__structure--bottom{
+    bottom: -10px;
+}
+.car__info{
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    width: 230px;
+    padding: 0 20px;
+    color: #292929da;
+    /* background-color: rgba(255, 255, 255, 0.541); */
+    display: none;
+    /* transition: display 1s ease-in; ; */
+}
+.car__info h4{
+    color: white;
+    font-size: larger;
+}
+.car__info div{
+    border-bottom: 1px solid #2929291a;
+    padding: 5px 0  20px 0;
+}
+.car__info span{
+    margin-left: 10px;
+}
+.wheels{
+    width: 49%;
+    padding: 5px 10px;
+    background-color: transparent;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center ;
+    justify-content: space-around;
+}
+
+.rent-now{
+    padding: 10px 20px;
+    width: 100%; 
+    margin-top: 20px;
+    background-color: #292929;
+    border: 2px solid #292929;
+    border-radius: 3px;
+    color: white;
+}
+.car__engine{
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    width: 350px;
+    display: none;
+}
+#back{
+    position: absolute;
+    top: 18%;
+    right: 25%;
+    font-weight: bolder;
     display: none;
 }
 
+#back::before{
+    content: '<';
+    font-size: 10px;
+    display: inline-block;
+    padding: 0 4px;
+    position: relative;
+    right: 5px;
+    top: -2px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #292929;
+ }
+
+ .mobile{
+     display: none;
+ }
 @media (max-width: 767px) {
 
     nav{
@@ -196,5 +308,65 @@ nav{
     .carousel__slide h1 {
         font-size: 130px;
         top: 150px
+    }
+    .desktop{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+    .read-more{
+        bottom: 6%;
+        height: 50px;
+    }
+    .carousel__track-title{
+        top: 67%;
+    }
+    .carousel__button--left{
+        left: 10px;    
+    }
+    
+    .carousel__button--right{
+        right: 10px;
+    }
+    /* .car__engine{
+        top: 43%;
+        left: 35%;
+        width: 100px;
+    } */
+    .car__info {
+        left: 0;
+        top: 23%;
+        padding: 0 30px;
+        width: auto;
+    }
+    .car__info h5{
+        display: none;
+    }
+    .carousel__slide h3{
+        top: 115px;
+    }
+    /* .car__structure img {
+        width: 100px;
+    }
+    .car__structure {
+        right: 5%;
+        left: auto;
+        bottom: 50%;
+    } */
+
+    .car__structure img {
+        width: 140px;
+        opacity: 1%;
+    }
+    .car__structure {
+        right: 29%;
+        left: auto;
+        bottom: -4%;
+        transform: rotate(-90deg);
+        opacity: 7%;
+    }
+    .car__structure div{
+        height: 31%;
     }
 }

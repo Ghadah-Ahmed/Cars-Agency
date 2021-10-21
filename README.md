@@ -2,7 +2,7 @@
 # Cars Exibition
 
 ##  Description
-Website design for modern cars exibition.
+A dynamic website for modern cars exibition.
 
 ##  Main functionalities
 - Add a new car.

@@ -26,7 +26,7 @@ Website design for modern cars exibition.
   - JSON mock server
 
 ##  Github Pages
-* You have to run the API server locally first. 
+*You have to run the API server locally first.*
 https://ghadah-ahmed.github.io/Cars-Agency/
 
 

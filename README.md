@@ -12,6 +12,19 @@ A dynamic website for modern cars exibition.
 
 *When adding a new car, try using these data:*
 
+      car_name: RED.
+      description: The 2020 Mercedes convertible builds off the open-air driving heritage as the first hardtop and mid-engine convertible in Mercedes history.
+      phrase: PRECISION IS THE PERFECTION.
+      car_img_png: https://ibb.co/Jd9CkjK.
+      background_color: #C72E3A.
+      color: #781f1d63.
+      manufacture: Mercedes.
+      seats_num: 4.
+      gear: Automatic.
+      engine_img_src: images/IMAGE_1443-03-13_10_35_34-removebg-preview.png.
+      engine_sound_src: 
+      wheels: 
+
 
 ##  Desktop View
 

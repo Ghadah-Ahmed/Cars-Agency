@@ -92,7 +92,7 @@ body, h3, h1{
     background: transparent;
     border: 0;
     cursor: pointer;
-    z-index: 99;
+    z-index: 2;
     color: white;
     /* font-size: 100px;
     font-weight: 1; */
@@ -164,7 +164,7 @@ nav{
     position: absolute;
     top: 0px;
     width: 95vw;
-    z-index: 1;
+    z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -185,7 +185,7 @@ nav{
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     background-color: white;
-    z-index: 2;
+    z-index: 5;
     display: flex;
     justify-content: center;
     transition: 0.7s;
@@ -212,9 +212,10 @@ nav{
     position: absolute;
     left: -4px;
     border-radius: 5%;
+    cursor: pointer;
 }
 .car__structure div:hover{
-    border: 2px solid #292929 ;
+    border: 2px solid #000000 ;
 }
 .car__structure--top{
     top: -10px;
@@ -228,7 +229,7 @@ nav{
     left: 50%;
     width: 230px;
     padding: 0 20px;
-    color: #292929da;
+    color: black;
     /* background-color: rgba(255, 255, 255, 0.541); */
     display: none;
     /* transition: display 1s ease-in; ; */
@@ -238,7 +239,7 @@ nav{
     font-size: larger;
 }
 .car__info div{
-    border-bottom: 1px solid #2929291a;
+    border-bottom: 1px solid black;
     padding: 5px 0  20px 0;
 }
 .car__info span{
@@ -252,14 +253,15 @@ nav{
     display: inline-flex;
     align-items: center ;
     justify-content: space-around;
+    border: 2px solid #000000;
 }
 
 .rent-now{
     padding: 10px 20px;
     width: 100%; 
     margin-top: 20px;
-    background-color: #292929;
-    border: 2px solid #292929;
+    background-color: #000000;
+    border: 2px solid #000000;
     border-radius: 3px;
     color: white;
 }
@@ -269,6 +271,7 @@ nav{
     right: 5%;
     width: 350px;
     display: none;
+    cursor: pointer;
 }
 #back{
     position: absolute;
@@ -296,6 +299,60 @@ nav{
  .mobile{
      display: none;
  }
+
+ #dashboard{
+     position: absolute;
+     top: 0;
+     left: 0;
+     background-color:#D8CFC4;
+     width: 100vw;
+     height: 0px;
+     overflow: hidden;
+     transition: height 0.5s ease-in;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     z-index: 3;
+ }
+ #dashboard form {
+     width: 50%;
+ }
+ #dashboard form button{
+    width: 97%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    resize: vertical;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+ }
+
+ #dashboard form input, #dashboard form select{
+    width: 48%;
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 7px;
+    margin-right: 3px;
+ }
+ ::placeholder {
+    color: rgb(0, 0, 0);
+  }
+ #dashboard form input[name=id]{
+     width: 97%;
+ }
+ #add{
+     margin-top: 5%;
+ }
+
+ a{
+     color: black;
+     text-decoration: none;
+ }
+
 @media (max-width: 767px) {
 
     nav{
@@ -321,13 +378,14 @@ nav{
     }
     .carousel__track-title{
         top: 67%;
+        width: 250px;
     }
     .carousel__button--left{
-        left: 10px;    
+        left: 5px;    
     }
     
     .carousel__button--right{
-        right: 10px;
+        right: 5px;
     }
     /* .car__engine{
         top: 43%;
@@ -368,5 +426,14 @@ nav{
     }
     .car__structure div{
         height: 31%;
+    }
+    #dashboard form input, #dashboard form select{
+        width: 46%;
+    }
+    #add{
+        margin-top: 15%;
+    }
+    .carousel__button img{
+        width: 20px;
     }
 }

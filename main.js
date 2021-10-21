@@ -59,6 +59,8 @@ fetch(url).then((resp) => resp.json()).then(function(data) {
         slides[0].classList.add("current-slide")
         dots[0].classList.add("current-slide")
         slidesOpesite.at(-1).classList.add("current-slide")
+        trackTitle.innerHTML = data[0].phrase
+        trackTitle.style.transform =  'translateX(' + trackTitle.getBoundingClientRect().width / 2 +'px)'
         moveToSlide(trackOpesite, trackOpesite.querySelector('.current-slide'), trackOpesite.querySelector('.current-slide'));
 
 })
@@ -72,57 +74,50 @@ function append(parent, el) {
   return parent.appendChild(el);
 }
 
-// data to be sent to the POST request
-let _data = {
-      car_name: "ORANGE",
-      description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, voluptas sapiente facere nisi aliquid at quo veritatis vero.",
-      phrase: "CAN YOU HEAR ME?",
-      car_img_png:"images/d42c9af667d649e8da136b8fec61f1e5-removebg-preview.png",
-      background_color: "#EB6435",
-      color: "#9d261136",
-      manufacture: "",
-      wheels: "",
-      seats_num: "",
-      gear: "",
-      engine_img_src:"images/IMAGE_1443-03-13_10_35_34-removebg-preview.png",
-      engine_sound_src:""  
-  }
 
-//   document.getElementById('delete').addEventListener('submit', function (e) {
-//     e.preventDefault();
-//     var id = this.querySelector('#carId').value;
-//     fetch( url + `/${id}`, {
-//         method: "DELETE",
-//         headers: {"Content-type": "application/json; charset=UTF-8"}
-//       })
-//       .then(response => response.json()) 
-//       .then(json => console.log(json))
-//       .catch(err => console.log(err)); 
-// })
+  document.getElementById('delete').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var id = this.querySelector('#carId').value;
+    fetch( url + `/${id}`, {
+        method: "DELETE",
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+      })
+      .then(response => response.json()) 
+      .then(json => console.log(json))
+      .catch(err => console.log(err)); 
+})
 
-//   document.getElementById('add').addEventListener('submit', function (e) {
-//       e.preventDefault();
-//       const formData = new FormData(this);
-//       fetch( url, {
-//         method: "POST",
-//         body: JSON.stringify(Object.fromEntries(formData)),
-//         headers: {"Content-type": "application/json; charset=UTF-8"}
-//       })
-//       .then(response => response.json()) 
-//       .then(json => console.log(json))
-//       .catch(err => console.log(err));     
-//   })
+  document.getElementById('add').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch( url, {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+      })
+      .then(response => response.json()) 
+      .then(json => console.log(json))
+      .catch(err => console.log(err));     
+  })
 
-//   function update(id) {
-//     fetch( url + `/${id}`, {
-//         method: "PATCH",
-//         body: JSON.stringify(_data),
-//         headers: {"Content-type": "application/json; charset=UTF-8"}
-//       })
-//       .then(response => response.json()) 
-//       .then(json => console.log(json))
-//       .catch(err => console.log(err)); 
-//   }
+  document.getElementById('update').addEventListener('submit', function (e) {
+    e.preventDefault();
+    let key = this.querySelector('select').value;
+    let value = this.querySelector('#value').value;
+    let id = this.querySelector('#carIdU').value;
+    // console.log(value, key)
+    var obj = {};
+    obj[key] = value;
+
+    fetch( url + `/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify(obj),
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+      })
+      .then(response => response.json()) 
+      .then(json => console.log(json))
+      .catch(err => console.log(err)); 
+  })
 
 
 
@@ -137,7 +132,6 @@ const moveToSlide = (track, currentSlide, targetSlide) => {
     currentSlide.classList.remove('current-slide');
     targetSlide.classList.add('current-slide');
 }
-trackTitle.style.transform =  'translateX(' + trackTitle.getBoundingClientRect().width / 2 +'px)'
 
 function trackStyle(){
     track.style.transition = 'transform 900ms ease-in';
@@ -267,8 +261,8 @@ function showInfo() {
     </div>
 
     <h5>Wheels</h5>
-    <button class="wheels" style="border: 2px solid #292929bd;" type="button" > <img src="images/wheel.png" width="30px" alt=""><span> 21* </span></button>
-    <button class="wheels" type="button" disabled> <img src="images/wheel.png" alt="" width="30px"><span>  56* </span></button> <br>
+    <button class="wheels" type="button" > <img src="images/wheel.png" width="30px" alt=""><span> 21* </span></button>
+    <button class="wheels" type="button" > <img src="images/wheel.png" alt="" width="30px"><span>  56* </span></button> <br>
     <button class="rent-now" type="button" >BOOK YOUR TRAIL!</button>
     `
 
@@ -366,3 +360,13 @@ function driveBackward(div){
     div.previousElementSibling.style.border = '1px solid white'
 }
 
+function toggleDash() {
+    let dash = document.getElementById('dashboard');
+    dash.style.backgroundColor = allData[slideIndex].background_color;
+
+    if(dash.style.height == '0px'){
+        dash.style.height = '100vh';
+    }else{
+        dash.style.height = '0px'
+    }
+}

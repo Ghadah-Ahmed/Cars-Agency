@@ -15,7 +15,7 @@ A dynamic website for modern cars exibition.
       car_name: RED.
       description: The 2020 Mercedes convertible builds off the open-air driving heritage as the first hardtop and mid-engine convertible in Mercedes history.
       phrase: PRECISION IS THE PERFECTION.
-      car_img_png: https://ibb.co/Jd9CkjK.
+      car_img_png: images/Mercedes-Benz-CLS-Class-2012-1600-94-removebg-preview.png.
       background_color: #C72E3A.
       color: #781f1d63.
       manufacture: Mercedes.

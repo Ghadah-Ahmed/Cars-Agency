@@ -53,12 +53,12 @@ https://user-images.githubusercontent.com/75578380/138236020-1ee06d20-3eaf-4689-
   - JSON mock server
 
 ## My Design Goal
-I tried to creat a website similar to this, I wish I shoot it :)
+I tried to creat a website similar to this, I wish I shoot it :)<br />
 https://www.pinterest.com/pin/387168899226629881/
 
 
 ##  Github Pages
-*You have to run the API server locally first.*
+*You have to run the API server locally first.* <br />Run the command: ``` $npm run json:server ``` <br />
 https://ghadah-ahmed.github.io/Cars-Agency/
 
 

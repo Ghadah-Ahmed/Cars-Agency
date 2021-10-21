@@ -10,7 +10,7 @@ A dynamic website for modern cars exibition.
 - Remove an existing car.
 - Edit a car.
 
-*When adding a new car, try using these data:*
+*When adding a new car, try using these data to the form:*
 
       car_name: RED.
       description: The 2020 Mercedes convertible builds off the open-air driving heritage as the first hardtop and mid-engine convertible in Mercedes history.

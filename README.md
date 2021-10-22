@@ -10,7 +10,7 @@ A dynamic website for modern cars exibition.
 - Remove an existing car.
 - Edit a car.
 
-*When adding a new car, try using these data to the form:*
+*When adding a new car, try filling out the form using these data:*
 
       car_name: RED.
       description: The 2020 Mercedes convertible builds off the open-air driving heritage as the first hardtop and mid-engine convertible in Mercedes history.
@@ -53,7 +53,7 @@ https://user-images.githubusercontent.com/75578380/138236020-1ee06d20-3eaf-4689-
   - JSON mock server
 
 ## My Design Goal
-I tried to creat a website similar to this, I wish I shoot it :)<br />
+I tried to creat a website similar to this, I wish I did it :)<br />
 https://www.pinterest.com/pin/387168899226629881/
 
 
